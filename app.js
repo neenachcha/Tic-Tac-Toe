@@ -4,10 +4,10 @@
 3. No CSS
 */
 
-
+var board;
+var _round = 0;
 
 //==================== MODEL ====================== // manage rules
-var _round = 0;
 // detect win or tie
 var detectWinOrTie = () => {
 
@@ -16,14 +16,46 @@ var detectWinOrTie = () => {
   // 2. three same mark on the same column
   // 3. three same mark diagonally top left to bottom right
   // 4. three same mark diagonally top right to bottom left
-    // detect the mark
+  var winner = detectThreeSameMarkOnSameRow() || detectThreeSameMarkOnSameColumn()
+  || detectThreeSameMarkOnLeftToRightDiagonal
+  || detectThreeSameMarkOnRightToLeftDiagonal();
+
+  if (winner) {
     // call show who wins with input of that mark
+    showWhoWins(winner);
+    return;
+  }
 
   // if the board has no more space left
   if (_round === 9) {
     // call show wins with input "tie"
     showWhoWins('tie');
+    return;
   }
+};
+
+var detectThreeSameMarkOnSameRow = () => {
+  // if current td has no content
+    // move to the next row
+  // else
+    // if no mark yet, save current content as mark
+    // if mark exist, but mark is not the same as current td content
+      // move to the next row
+    // move to the td in the same row
+
+  return mark; // return mark which represent 'x' 'o' or null
+};
+var detectThreeSameMarkOnSameColumn = () => {
+
+  return mark;
+};
+var detectThreeSameMarkOnLeftToRightDiagonal = () => {
+
+  return mark;
+};
+var detectThreeSameMarkOnRightToLeftDiagonal = () => {
+
+  return mark;
 };
 
 // Rules for next player
@@ -79,7 +111,7 @@ var showWhoWins = (winner) => {
 
 
 // Get element that user click
-var board = document.getElementById('board');
+board = document.getElementById('board');
 // handle click (always start with player x)
 board.onclick = function (e) {
   // call show mark (input = clicked element)
