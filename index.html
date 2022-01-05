@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    h1 {
+      text-align: center;
+    }
+    #board {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    tr td {
+      border: 1px solid grey;
+      width: 100px;
+      height: 100px;
+      vertical-align: center;
+      text-align: center;
+    }
+    #round {
+      position: absolute;
+      right: 5px;
+      border: 1px solid grey;
+    }
+    #winner {
+      margin-top: 100px;
+      text-align: center;
+    }
+  </style>
+
+</head>
+<body>
+
+<h1 class='boardName'>Tic Tac Toe</h1>
+<table id='board'>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+</table>
+<span id='round'>Round : 0</span>
+<div id='winner'>Have Fun!</div>
+<script src="app.js"></script>
+</body>
+</html>
